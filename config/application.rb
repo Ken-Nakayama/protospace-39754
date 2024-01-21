@@ -10,7 +10,7 @@ module Protospace39754
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    config.active_storage.variant_processor = :mini_magick
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -18,5 +18,10 @@ module Protospace39754
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.to_prepare do
+      Devise::RegistrationsController.before_action :configure_permitted_parameters
+    end
+
   end
 end
