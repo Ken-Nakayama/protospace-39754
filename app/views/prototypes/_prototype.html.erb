@@ -10,6 +10,7 @@
   <div class="prototype-info">
     <h3><%= link_to prototype.title, prototype_path(prototype) %></h3>
     <p><%= prototype.catch_copy %></p>
-    <p><%#= link_to "by #{@prototype.user.name}", user_path, class: :prototype__user %></p>
+    <p><%= prototype.concept %></p>
+    <p><%= link_to prototype.user.name, user_path(prototype.user), class: :prototype__user %></p>
   </div>
 </div>
