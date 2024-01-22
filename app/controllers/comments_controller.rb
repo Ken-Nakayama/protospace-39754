@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
       redirect_to prototype_path(params[:prototype_id])
     else
       @prototype = @comment.prototype
-      render "prototype/show"
+      #render "prototype/show"
     end
   end
 

@@ -43,7 +43,7 @@
         <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
         <% if user_signed_in? %>
 
-          <%= form_with(model: [@prototype, @comment], url: prototype_comments_path(@prototype), local: true) do |f| %>
+          <%= form_with(model: [@prototype, @comment], url: prototype_comments_path(@prototype)) do |f| %>
             <div class="field">
               <%= f.label :comment, "コメント" %><br />
               <%= f.text_field :comment, id: "comment_comment" %>
@@ -61,7 +61,7 @@
             <% @prototype.comments.each do |comment| %>
               <li class="comments_list">
                 <%= comment.comment %>
-                <%= link_to "(#{comment.user.name})", user_path, class: :comment_user %>
+                <%= link_to "(#{comment.user.name})", user_path(comment.user), class: :comment_user %>
               </li>
             <% end %>
           <% else %>
